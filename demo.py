@@ -49,11 +49,11 @@ if len(files) == 0:
     raise Exception(f"No files found at {inp_dir}")
 
 # Load corresponding model architecture and weights
-load_file = run_path(os.path.join(task, "MPRNet.py"))
+load_file = run_path(os.path.join("/content/MPRNet"+task, "MPRNet.py"))
 model = load_file['MPRNet']()
 model.cuda()
 
-weights = os.path.join(task, "pretrained_models", "model_"+task.lower()+".pth")
+weights = os.path.join("/content/MPRNet/"+task, "pretrained_models", "model_"+task.lower()+".pth")
 load_checkpoint(model, weights)
 model.eval()
 
